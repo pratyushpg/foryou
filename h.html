@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Favorite Person | Pratyush</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-bg: #0b0d17;
+            --accent-gold: #d4af37;
+            --soft-pink: #ff4d6d;
+            --text-light: #f4f4f4;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Floating Hearts Background --- */
+        #hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            color: var(--soft-pink);
+            opacity: 0.5;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=1000') center/cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: var(--accent-gold);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* --- Timeline Section --- */
+        .timeline-section { padding: 80px 0; position: relative; z-index: 1; }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--accent-gold), transparent);
+            top: 0; bottom: 0; left: 50%; margin-left: -1px;
+        }
+
+        .container {
+            padding: 10px 50px;
+            position: relative;
+            width: 50%;
+        }
+
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+
+        .container::after {
+            content: '❤';
+            position: absolute;
+            width: 30px; height: 30px;
+            right: -15px; top: 20px;
+            background: var(--primary-bg);
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
+            z-index: 2;
+            color: var(--accent-gold);
+            display: flex; justify-content: center; align-items: center;
+            font-size: 14px;
+        }
+
+        .right::after { left: -15px; }
+
+        .content {
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(5px);
+            transition: 0.4s;
+        }
+
+        .content:hover { border-color: var(--accent-gold); transform: scale(1.02); }
+
+        .content img { width: 100%; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+        .date { font-weight: 600; color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 8px; display: block; }
+
+        /* --- Reasons Grid --- */
+        .reasons-section { padding: 100px 20px; text-align: center; z-index: 1; position: relative; }
+        .reasons-header { font-family: 'Dancing Script'; font-size: 3.5rem; color: var(--accent-gold); margin-bottom: 40px; }
+        
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .reason-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border-bottom: 3px solid var(--soft-pink);
+        }
+
+        /* --- Responsive --- */
+        @media screen and (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .timeline::after { left: 31px; }
+            .container { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
+            .container::after { left: 16px; }
+            .right { left: 0%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="hearts-container"></div>
+
+    <section class="hero">
+        <h1 data-aos="zoom-in">For My Beautiful Girl Shreya</h1>
+        <p data-aos="fade-up" data-aos-delay="400">Every moment with you is my favorite memory.</p>
+    </section>
+
+    <div class="timeline-section">
+        <div class="timeline">
+            <div class="container left" data-aos="fade-right">
+                <div class="content">
+                    <span class="date">The Very First Day 12th Jan,2025</span>
+                    <img src="https://via.placeholder.com/400x300" alt="First Memory">
+                    <p>Where it all began. I still remember exactly what I thought the first time I saw you.I know we dont have any picture of that day but it will always remain special to me. Holding your hand for the first time and seeing you and relaising all i want is YOU </p>
+                </div>
+            </div>
+
+            <div class="container right" data-aos="fade-left">
+                <div class="content">
+                    <span class="date">Our First Movie Date</span>
+                    <img src="https://via.placeholder.com/400x300" alt="First Date">
+                    <p> That day when i was waiting for my baby , as soon i saw my baby , so beautiful and lively feeling the heat still walking happily and wearing a mask , from blowing air to you to taking so many pictutes in threater, choosing popcorn and coke , feeding you with my hand and making you eat first then eating the remaning, baby ko coke pasand hay aur phir baby ko apna coke se pilana</p>
+                </div>
+            </div>
+
+            <div class="container left" data-aos="fade-right">
+                <div class="content">
+                    <span class="date">Our First Bike Ride</span>
+                    <img src="https://via.placeholder.com/400x300" alt="Bike Ride">
+                    <p>The first bike ride when i came to pick baby up after her exam, baby was little nervous ki kaisa hoga after exam milna but i knew ki baby se milna mtlab always aacha and special , and then little rain baby hoding me from behind felt like ye time rukh jaye aur main aur mere baby bs ye moment jiye. Our GT650 is waiting baby</p>
+                </div>
+            </div>
+
+            <div class="container right" data-aos="fade-left">
+                <div class="content">
+                    <span class="date">Our first Car Ride</span>
+                    <img src="https://via.placeholder.com/400x300" alt="Us">
+                    <p>You are always motivation when you told me that ki car you like , i was like baby ke liye car leni hay and then car seekhna just to take you on long drive and that day came when baby sat on our first car for the very first time, from bucling the seat belt for you from holding your hand while i drive surpising you with the roses and baby ka reaction jb rose petlas wala surprises baby ko diya tha, Hope you like my driving now baby </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="reasons-section">
+        <h2 class="reasons-header">Why I Love You</h2>
+        <div class="reasons-grid">
+            <div class="reason-card" data-aos="flip-up">
+                <h3>Your Smile</h3>
+                <p>It literally lights up my entire world, no matter how bad my day was. When you smile it feels like all the problem just walk away giving me all the khusi</p>
+            </div>
+            <div class="reason-card" data-aos="flip-up" data-aos-delay="100">
+                <h3>Your Heart</h3>
+                <p>The way you care about me how you take care of my small liking and disliking , how you change yourslef for me , how you do thing just to see me happy i know main aapko preshan krta hoon but aapse bhut pyar krta hoon aur hmesa krunga</p>
+            </div>
+            <div class="reason-card" data-aos="flip-up" data-aos-delay="200">
+                <h3>Your Support</h3>
+                <p>Thank you for believing in me even when I don't believe in myself. The way you motivate me from supporting me while i am doing blogging or i am at gym or i am working hard jaise aap mere liye hmesa sochti ho mujai hmesa theek krti ho khaye ki nhi , mujai hmesa jagana jaldi taki main subha uth kr breakfast kr lu, I am luckiest to have YOU Wifey</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 100px 20px; font-family: 'Dancing Script'; font-size: 2.5rem; color: var(--accent-gold);">
+        To many more years of us... ❤
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({ duration: 1000, once: true });
+
+        // Generate Floating Hearts
+        const heartsContainer = document.getElementById('hearts-container');
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            heartsContainer.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 6000);
+        }
+        setInterval(createHeart, 400);
+    </script>
+</body>
+</html>
